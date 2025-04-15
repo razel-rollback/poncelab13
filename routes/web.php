@@ -6,14 +6,14 @@ use App\Http\Controllers\AuthController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login'); // Redirect to login page
 });
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/register', [AuthController::class, 'showRegister']);
+    Route::get('/register', [AuthController::class, 'showRegister']); // Add name here
     Route::post('/register', [AuthController::class, 'register']);
-    
-    Route::get('/login', [AuthController::class, 'showLogin'])->name('login'); 
+
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
 });
 
