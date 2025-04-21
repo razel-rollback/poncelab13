@@ -12,12 +12,12 @@
 <body>
     <div class="container-fluid vh-100">
         <div class="row h-100 align-items-center justify-content-center">
-            <div class="col col-10 col-md-9 col-lg-8 col-xl-6 col-xxl-5">
-                <div class="card p-4">
-                    <div class="card-title">
-                        <h2 class="text-center">Register</h2>
+            <div class="col col-10 col-md-8 col-lg-6">
+                <div class="card p-4 shadow">
+                    <div class="card-title text-center">
+                        <h2>Register</h2>
                     </div>
-                    <div class="card-body p-4">
+                    <div class="card-body">
                         @if ($errors->any())
                         <div class="alert alert-danger" role="alert">
                             <ul>
@@ -30,25 +30,25 @@
 
                         <form method="POST" action="/register">
                             @csrf
-                            <div class="form-group mb-3">
-                                <label for="idname" class="form-label">Name: </label>
-                                <input id="idname" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}" required>
+                            <div class="mb-3">
+                                <label for="idname" class="form-label">Name</label>
+                                <input id="idname" name="name" class="form-control" placeholder="Enter your name" value="{{ old('name') }}" required>
                             </div>
-                            <div class="form-group mb-3">
-                                <label for="idemail" class="form-label">Email: </label>
-                                <input id="idemail" name="email" type="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
+                            <div class="mb-3">
+                                <label for="idemail" class="form-label">Email</label>
+                                <input id="idemail" name="email" type="email" class="form-control" placeholder="Enter your email" value="{{ old('email') }}" required>
                             </div>
-                            <div class="form-group mb-3">
-                                <label for="idpassord" class="form-label">Password: </label>
-                                <input id="idpassord" name="password" type="password" class="form-control" placeholder="Password" required>
+                            <div class="mb-3">
+                                <label for="idpassword" class="form-label">Password</label>
+                                <input id="idpassword" name="password" type="password" class="form-control" placeholder="Create a password" required>
                             </div>
-                            <div class="form-group mb-3">
-                                <label for="idcpassword" class="form-label">Confirm Password: </label>
-                                <input id="idcpassword" name="password_confirmation" type="password" class="form-control" placeholder="Confirm Password" required>
+                            <div class="mb-3">
+                                <label for="idcpassword" class="form-label">Confirm Password</label>
+                                <input id="idcpassword" name="password_confirmation" type="password" class="form-control" placeholder="Confirm your password" required>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block mb-3">Register</button>
+                            <button type="submit" class="btn btn-primary w-100">Register</button>
                         </form>
-                        <div class="text-center align-items-center justify-content-center">
+                        <div class="text-center mt-3">
                             <p>Already have an account? <a href="{{ route('login') }}">Log in here</a></p>
                         </div>
                     </div>
