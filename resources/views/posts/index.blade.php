@@ -4,15 +4,31 @@
 <div class="row h-100 align-items-center justify-content-center">
     <div class="col col-lg-8 col-md-10 col-sm-12">
         <div class="d-flex card p-5">
+            @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+
             <div>
+            <h1 class="text-center">Welcome, {{ auth()->user()->name }}!</h1>
+            <h1 class="text-center">Welcome, {{ auth()->user()->id }}!</h1>
+        <p class="text-center">You are logged in as {{ auth()->user()->email }}</p>
                 <h1 class="col text-center mb-3">All Posts</h1>
+            </div>
+            <div>
+           
+
+        <form method="POST" action="/logout" class="text-center">
+            @csrf
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
             </div>
 
             <div class="col d-flex justify-content-end"> <a href="{{ route('posts.create') }}" class="btn btn-primary mb-3">Create New Post</a></div>
 
-            @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-            @endif
+           
+            
+            
+           
 
             @foreach ($posts as $post)
             <div class="card mb-3">
